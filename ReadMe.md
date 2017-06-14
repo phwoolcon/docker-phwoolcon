@@ -33,8 +33,27 @@ docker-compose up -d
 docker-compose stop
 ```
 
+> restart docker
+
+```bash
+docker-compose restart
+```
+
 > bash
 
 ```bash
+docker-compose exec nginx bash
 docker-compose exec php bash
+```
+
+> nginx config directory
+
+```bash
+./services/nginx/conf.d     # docker-composer should restart after adding new config 
+```
+
+> location of sites
+
+```bash
+wwwroot
 ```
