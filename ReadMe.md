@@ -36,7 +36,7 @@ docker-compose stop
 > restart docker
 
 ```bash
-docker-compose restart
+docker-compose restart <nginx | php | mysql | redis | beanstalkd>
 ```
 
 > bash

@@ -26,13 +26,15 @@ services:
             - redis
             - beanstalkd
         volumes:
+            - ./services/php/cron:/etc/cron.d
+            - ./services/php/supervisor:/etc/supervisor/conf.d
             - ./wwwroot:/home/wwwroot
     mysql:
         image: mysql:5.7
         ports:
             - "3306:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: "secret"
+            MYSQL_ROOT_PASSWORD: "root"
             MYSQL_USER: "phwoolcon"
             MYSQL_PASSWORD: "phwoolcon"
         volumes:

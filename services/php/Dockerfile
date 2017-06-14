@@ -46,16 +46,9 @@ RUN cd / && \
     make && make install && \
     echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 
-# install supervisor
-RUN apt-get install  --allow-unauthenticated -y supervisor
-COPY ./supervisor/ /etc/supervisor/conf.d/
+# install supervisor , cron
+RUN apt-get install supervisor cron --allow-unauthenticated -y
 RUN service supervisor start
-
-# configure cron
-RUN apt-get install  --allow-unauthenticated -y cron
-COPY ./cron/*.cron /cron.d/
-WORKDIR /cron.d
-RUN find *.cron -type f -exec cat {} \;>>/etc/crontab
 
 COPY ./.bashrc /root/.bashrc
 
