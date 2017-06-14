@@ -36,5 +36,5 @@ docker-compose stop
 > bash
 
 ```bash
-docker-compose exec php-console bash
+docker-compose exec php bash
 ```
