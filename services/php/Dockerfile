@@ -55,4 +55,7 @@ COPY ./.bashrc /root/.bashrc
 # generate ssh key
 RUN ssh-keygen -f 'id_rsa' -t rsa -N ''
 
+# clean up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 WORKDIR /home/wwwroot
